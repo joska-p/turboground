@@ -1,0 +1,12 @@
+---
+import { buttonVariants } from "@/components/ui/button/button";
+import Layout from "@/layouts/layout.astro";
+
+const baseUrl = import.meta.env.BASE_URL;
+---
+
+<Layout title="Mosaic">
+  <article>
+    <a href={`${baseUrl}mosaic/maker/`} class={buttonVariants()}>--&gt; Mosaic maker page</a>
+  </article>
+</Layout>
