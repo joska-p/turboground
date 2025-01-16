@@ -2,31 +2,27 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main # Change this to your default branch if it's not 'main'
+    branches: ["main"]
 
 jobs:
   deploy:
+    name: Build and Test
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Check out code
+        uses: actions/checkout@v4
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
         with:
-          node-version: "23" # Specify the Node.js version you need
-
+          node-version: 23
       - name: Install pnpm
         run: npm install -g pnpm
-
       - name: Install dependencies
         run: pnpm install
-
-      - name: Build the app
+      - name: Build
         run: pnpm run build
-
+      - name: Test
+        run: pnpm run test
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
