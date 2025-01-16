@@ -18,11 +18,14 @@ jobs:
         with:
           node-version: "23" # Specify the Node.js version you need
 
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
 
       - name: Build the app
-        run: npm run build
+        run: pnpm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
