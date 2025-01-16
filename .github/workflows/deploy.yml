@@ -4,6 +4,12 @@ on:
   push:
     branches: ["main"]
 
+# Allow this job to clone the repo and create a page deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   deploy:
     name: Build and Test
@@ -11,20 +17,26 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v4
+
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
           node-version: 23
+
       - name: Install pnpm
         run: npm install -g pnpm
+
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
+
       - name: Build
         run: pnpm run build
+
       - name: Test
         run: pnpm run test
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./app/playground/dist # Change this if your build output is in a different directory
+          publish_dir: ./app/playground/dist
