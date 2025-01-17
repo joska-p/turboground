@@ -2,7 +2,7 @@ import type { ComponentProps } from "react";
 import { CSS_VARS } from "../config";
 import { cn } from "@/lib/utils";
 
-interface Props extends ComponentProps<"div"> {
+export interface Props extends ComponentProps<"div"> {
   colors: [string, string, string, string, string];
   rotation: string;
 }

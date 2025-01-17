@@ -3,26 +3,33 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./button": "./src/button.tsx",
-    "./card": "./src/card.tsx",
-    "./code": "./src/code.tsx"
+    "./tester": "./src/components/tester/tester.tsx",
+    "./button": "./src/components/button/button.tsx",
+    "./input": "./src/components/input/input.tsx",
+    "./label": "./src/components/label/label.tsx",
+    "./slider": "./src/components/slider/slider.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
-    "generate:component": "turbo gen react-component",
     "check-types": "tsc --noEmit"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@turbo/gen": "^1.12.4",
+    "@types/css-modules": "^1.0.5",
     "@types/node": "^20.11.24",
     "@types/react": "18.3.0",
     "@types/react-dom": "18.3.1",
+    "prettier-plugin-tailwindcss": "^0.6.9",
     "typescript": "5.5.4"
   },
-  "dependencies": {
+  "peerDependencies": {
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss": "^3.4.17"
   }
 }

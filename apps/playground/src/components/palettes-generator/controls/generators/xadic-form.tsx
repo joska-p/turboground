@@ -1,8 +1,8 @@
 import type { Signal } from "@preact/signals-react";
+import { Button } from "@repo/ui/button";
+import { Input } from "@repo/ui/input";
 import { useState } from "react";
 import type { HSLColor } from "../../lib/color-conversions";
-import { Button } from "@/components/ui/button/button";
-import { Input } from "@/components/ui/input/input";
 
 interface MonochromaticPalettes {
   baseColor: HSLColor;

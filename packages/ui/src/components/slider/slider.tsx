@@ -1,6 +1,6 @@
 import type { ComponentProps } from "react";
+import { cn } from "../../lib/utils";
 import styles from "./slider.module.css";
-import { cn } from "@/lib/utils";
 
 type LabelProps = ComponentProps<"label">;
 type InputProps = ComponentProps<"input">;
@@ -8,7 +8,10 @@ type InputProps = ComponentProps<"input">;
 const Label = ({ children, className, ...props }: LabelProps) => {
   return (
     <label
-      className={cn("flex w-fit cursor-pointer flex-col items-center text-sm", className)}
+      className={cn(
+        "flex w-fit cursor-pointer flex-col items-center text-sm",
+        className
+      )}
       {...props}
     >
       {children}
@@ -16,7 +19,16 @@ const Label = ({ children, className, ...props }: LabelProps) => {
   );
 };
 
-const Input = ({ ref, min, step, max, value, onChange, className, ...props }: InputProps) => {
+const Input = ({
+  ref,
+  min,
+  step,
+  max,
+  value,
+  onChange,
+  className,
+  ...props
+}: InputProps) => {
   return (
     <input
       ref={ref}

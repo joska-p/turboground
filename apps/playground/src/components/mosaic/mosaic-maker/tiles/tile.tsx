@@ -9,14 +9,14 @@ import { Triangles } from "./triangles";
 import { cn } from "@/lib/utils";
 
 const tileComponents = {
-  [CornerCircles.name]: CornerCircles,
-  [Diamond.name]: Diamond,
-  [MiddleCircle.name]: MiddleCircle,
-  [OppositeCircles.name]: OppositeCircles,
-  [Rainbow.name]: Rainbow,
-  [Square.name]: Square,
-  [Triangles.name]: Triangles,
-  [Cube.name]: Cube,
+  CornerCircles,
+  Diamond,
+  MiddleCircle,
+  OppositeCircles,
+  Rainbow,
+  Square,
+  Triangles,
+  Cube,
 };
 
 interface Props {

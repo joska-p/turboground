@@ -1,6 +1,6 @@
 import { useSignal } from "@preact/signals-react";
+import { Slider } from "@repo/ui/slider";
 import { useMosaicMakerContext } from "../mosaic-context";
-import { Slider } from "@/components/ui/slider/slider";
 
 interface Props {
   label: string;
@@ -24,7 +24,7 @@ function SliderControls({ label, defaultValue, cssVar, min, max, step }: Props) 
 
   return (
     <Slider.Label>
-      {label}: {slideValue}px
+      {label}: {slideValue.value}px
       <Slider.Input
         min={min}
         max={max}

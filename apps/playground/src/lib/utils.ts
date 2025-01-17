@@ -15,7 +15,12 @@ const shuffleObject = <T extends Record<string, unknown>>(object: T) => {
   return Object.fromEntries(keys.map((key, index) => [key, shuffledValues[index]])) as T;
 };
 
-const getRandom = <T>(array: T[]): T => array[Math.floor(Math.random() * array.length)];
+const getRandom = <T>(array: T[]): T | undefined => {
+  if (array.length === 0) {
+    return undefined;
+  }
+  return array[Math.floor(Math.random() * array.length)];
+};
 
 const safeFetch = async <TData>(url: string, scheme: z.ZodSchema<TData>): Promise<TData> => {
   const response = await fetch(url);
