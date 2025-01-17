@@ -1,3 +1,5 @@
+import type { TileComponentNames } from "./tiles/tile";
+
 const CSS_VARS = {
   width: "--tile-size",
   height: "--tile-size",
@@ -32,7 +34,7 @@ const defaultPalette = {
   "--color-4": "#bbbbbb",
 };
 
-const defaultTileSet = [
+const defaultTileSet: TileComponentNames[] = [
   "CornerCircles",
   "Diamond",
   "MiddleCircle",

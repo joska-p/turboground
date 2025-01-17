@@ -10,7 +10,7 @@ const Label = ({ children, className, ...props }: LabelProps) => {
     <label
       className={cn(
         "flex w-fit cursor-pointer flex-col items-center text-sm",
-        className
+        className,
       )}
       {...props}
     >
@@ -42,7 +42,7 @@ const Input = ({
         "my-4 h-2 w-full cursor-pointer appearance-none rounded-lg bg-foreground/50 outline-none",
         "focus-visible:ring-2 focus-visible:ring-accent",
         styles.slider,
-        className
+        className,
       )}
       {...props}
     />

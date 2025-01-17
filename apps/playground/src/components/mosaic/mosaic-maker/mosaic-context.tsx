@@ -1,10 +1,11 @@
-import type { Signal } from "@preact/signals-react";
+import type { ReadonlySignal, Signal } from "@preact/signals-react";
 import { computed, effect, signal } from "@preact/signals-react";
 import type { ComponentProps } from "react";
 import { createContext, useContext, useRef } from "react";
 import { initialPalette, initialTileSet, MAX_RANDOM_PALETTES } from "./config";
 import { fetchPalettes } from "./libs/fetch-palettes";
 import { computeNumberOfTiles } from "./libs/style-utils";
+import type { TileComponentNames } from "./tiles/tile";
 import { getRandom } from "@/lib/utils";
 
 interface MosaicContext {
@@ -13,7 +14,7 @@ interface MosaicContext {
   allThePalettes: Signal<(typeof initialPalette)[]>;
   currentPalettes: Signal<(typeof initialPalette)[]>;
   currentPalette: Signal<typeof initialPalette>;
-  tiles: Signal<string[]>;
+  tiles: ReadonlySignal<TileComponentNames[]>;
 }
 
 const MosaicMakerContext = createContext<MosaicContext | null>(null);
@@ -28,7 +29,7 @@ function MosaicMakerProvider({ children }: ComponentProps<"div">) {
     const newTileSet = tileSet.value;
     const mosaicElement = mosaicRef.current;
     const numberOfTiles = mosaicElement ? computeNumberOfTiles(mosaicElement) : 0;
-    return Array.from({ length: numberOfTiles }, () => getRandom(newTileSet));
+    return Array.from({ length: numberOfTiles }, () => getRandom(newTileSet) as TileComponentNames);
   });
 
   effect(() => {

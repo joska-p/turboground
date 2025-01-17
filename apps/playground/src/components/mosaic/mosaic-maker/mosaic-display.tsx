@@ -32,7 +32,7 @@ function generateTileColors() {
 
 function generateTileRotations() {
   const rotationKeys = Object.keys(initialRotations);
-  return getRandom(rotationKeys);
+  return getRandom(rotationKeys) as string;
 }
 
 function MosaicDisplay() {

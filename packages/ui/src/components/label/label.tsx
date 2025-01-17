@@ -8,7 +8,7 @@ function Label({ children, className, ...props }: Props) {
     <label
       className={cn(
         "flex cursor-pointer items-center gap-2 text-sm",
-        className
+        className,
       )}
       {...props}
     >

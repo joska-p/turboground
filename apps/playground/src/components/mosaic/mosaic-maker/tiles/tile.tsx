@@ -19,8 +19,10 @@ const tileComponents = {
   Cube,
 };
 
+export type TileComponentNames = keyof typeof tileComponents;
+
 interface Props {
-  name: keyof typeof tileComponents;
+  name: TileComponentNames;
   colors: [string, string, string, string, string];
   rotation: string;
   className?: string;
